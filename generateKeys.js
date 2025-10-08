@@ -12,7 +12,7 @@ async function generateKeypair() {
     // Derive public key from private key
     const publicKey = eddsa.prv2pub(privateKey);
 
-    console.log("Private Key (hex):", Buffer.from(privateKey).toString('hex'));
+    console.log("Private Key (hex):", BigInt("0x" + Buffer.from(privateKey).toString('hex')));
     console.log("Private Key (array):", privateKey);
     console.log("Public Key (x):", eddsa.F.toObject(publicKey[0]).toString());
     console.log("Public Key (y):", eddsa.F.toObject(publicKey[1]).toString());

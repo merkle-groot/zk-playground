@@ -14,8 +14,6 @@ template MerkleVerifier(nLevels) {
 
 	component hashers[nLevels];
 	component switchers[nLevels];
-
-	// Used to select the hash to compare with the root
 	component compareLevelRoot[nLevels];
 	component constaintLevelRoot[nLevels];
 
