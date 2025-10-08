@@ -15,13 +15,13 @@ function toField(data) {
     return eddsa.F.e(data);
 }
 
-// Hash two field elements (like your Rust example)
+// Hash n field elements
 async function hash(data) {
     if (!poseidon) {
         await initializePoseidon();
     }
-    const bytesResult = poseidon(data);
-    const bigIntHash = poseidon.F.toObject(bytesResult);
+    const bytesResult = await poseidon(data);
+    const bigIntHash = await poseidon.F.toObject(bytesResult);
     return bigIntHash;
 }
 
