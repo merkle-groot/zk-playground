@@ -69,4 +69,18 @@ describe("Wordle circuit test", function(){
         await circuit.checkConstraints(witness);
 
     });
+
+    it("wrong result", async function(){
+        const solutionHash = await hash(Array.from("APPLE", x => x.charCodeAt(0)));
+        const witness = await circuit.calculateWitness({
+            solutionHash: solutionHash,
+            solution: Array.from("APPLE", x => x.charCodeAt(0)),
+            guess: Array.from("PUPPY", x => x.charCodeAt(0))
+        });
+
+        console.log("result: ", witness.slice(1, 6));
+        // console.log("Circuit output (poseidon hash):", );
+        // await circuit.checkConstraints(witness);
+
+    });
 });
